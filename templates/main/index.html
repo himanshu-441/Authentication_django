@@ -7,16 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Login</h1>
-    {% if error %}
-    <p> {{error}} </p>
+    {% if user.is_authenticated %}
+
+    <a href="{% url 'sshh' %}">Secure Page</a>
+    <a href="/auth/logout">Logout</a>
+
+    {% else %}
+
+    <a href="/auth/login">Login</a>
 
     {% endif %}
-
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{form}}
-        <button type="submit">Submit</button>
-    </form>
 </body>
 </html>
